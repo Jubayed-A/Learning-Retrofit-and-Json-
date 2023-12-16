@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
-class MyAdapter(private val context : Activity, private val productArrayList: List<Product>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class MyAdapter(private val context: Activity, private val productArrayList: List<Product>) :
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     private lateinit var myListener: onItemClickLister
 
@@ -19,14 +20,15 @@ class MyAdapter(private val context : Activity, private val productArrayList: Li
         fun onItemClicking(position: Int)
     }
 
-    fun setOnItemClickListener(lister: onItemClickLister){
+    fun setOnItemClickListener(lister: onItemClickLister) {
         myListener = lister
     }
 
-    class MyViewHolder(itemView : View, lister: onItemClickLister) : RecyclerView.ViewHolder(itemView) {
-        var title : TextView
-        var reating : RatingBar
-        var image : ShapeableImageView
+    class MyViewHolder(itemView: View, lister: onItemClickLister) :
+        RecyclerView.ViewHolder(itemView) {
+        var title: TextView
+        var reating: RatingBar
+        var image: ShapeableImageView
 
         init {
             title = itemView.findViewById(R.id.productTitle)
