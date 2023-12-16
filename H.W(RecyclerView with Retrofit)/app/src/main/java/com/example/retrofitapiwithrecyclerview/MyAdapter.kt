@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
-class MyAdapter(val context : Activity, val productArrayList: List<Product>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class MyAdapter(private val context : Activity, private val productArrayList: List<Product>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
-    lateinit var myListener: onItemClickLister
+    private lateinit var myListener: onItemClickLister
 
     interface onItemClickLister {
         fun onItemClicking(position: Int)
@@ -51,7 +51,7 @@ class MyAdapter(val context : Activity, val productArrayList: List<Product>) : R
         val currentItem = productArrayList[position]
         holder.title.text = currentItem.title
         holder.reating.rating = currentItem.rating.toFloat()
-        //
+        // image show from json file
         Picasso.get().load(currentItem.thumbnail).into(holder.image)
     }
 }

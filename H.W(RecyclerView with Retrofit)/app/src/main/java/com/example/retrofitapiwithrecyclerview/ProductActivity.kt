@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 class ProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,7 @@ class ProductActivity : AppCompatActivity() {
 
         val heading = intent.getStringExtra("heading")
         val productDescription = intent.getStringExtra("description")
-        val headingImg = intent.getIntExtra("image", R.drawable.img1)
+        val headingImg = intent.getStringExtra("image")
         val productRating = intent.getFloatExtra("rating", 4.5f)
 
         val title = findViewById<TextView>(R.id.productHeading)
@@ -23,7 +24,7 @@ class ProductActivity : AppCompatActivity() {
 
         title.text = heading
         description.text = productDescription
-        image.setImageResource(headingImg)
+        Picasso.get().load(headingImg).into(image)
         rating.rating = productRating
 
     }
